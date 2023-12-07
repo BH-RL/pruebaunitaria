@@ -1,0 +1,22 @@
+name: Ejecutarpp
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Instalar dependencias
+        run: yarn install
+
+      - name: Ejecutar pruebas unitarias
+        run: index.test.js
